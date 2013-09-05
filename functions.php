@@ -62,3 +62,71 @@ add_action( 'wp_enqueue_scripts', 'standard_child_theme_kit_reorder_styles', 100
 
 
 /* /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CUSTOMIZATIONS /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ */
+
+if( ! function_exists( 'standard_add_theme_sidebars' ) ) {
+    /**
+     * Adds four widgetized areas: the sidebar, the left footer, center footer, and right footer.
+     *
+     * This function can be overridden by child themes.
+     *
+     * @since	3.0
+     * @version	3.2
+     */
+    function standard_add_theme_sidebars() {
+
+        // post advertisements
+        register_sidebar(
+            array(
+                'name'			=>	__( 'Below Single Post', 'standard'),
+                'id'			=>	'sidebar-2',
+                'description'	=>	__( 'Shown after post content and before comments. Ideal for the 468x60 ad widget.', 'standard' ),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>'
+            )
+        );
+
+        // footer left
+        register_sidebar(
+            array(
+                'name' 			=> __( 'Footer Left', 'standard' ),
+                'id' 			=> 'sidebar-3',
+                'description'	=> __( 'Shown in the first column of the footer.', 'standard' ),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>'
+            )
+        );
+
+        // footer center
+        register_sidebar(
+            array(
+                'name' 			=> __( 'Footer Center', 'standard' ),
+                'id' 			=> 'sidebar-4',
+                'description'	=> __( 'Shown in the second column of the footer.', 'standard' ),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>'
+            )
+        );
+
+        // footer right
+        register_sidebar(
+            array(
+                'name' 			=> __( 'Footer Right', 'standard' ),
+                'id' 			=> 'sidebar-5',
+                'description'	=> __( 'Shown in the third column of the footer.', 'standard' ),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>'
+            )
+        );
+
+    } // end add_theme_sidebars
+    add_action( 'widgets_init', 'standard_add_theme_sidebars' );
+} // end if
+
