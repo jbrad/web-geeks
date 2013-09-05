@@ -1,0 +1,12 @@
+{
+  "name": "jasonbradley",
+  "dependencies": {
+    "bootstrap": "3.0.x"
+  },
+  "exportsOverride": { 
+    "bootstrap": {
+      "../css/less/": ["less/*.less"],
+      "../js/dev/": ["js/*.js"]
+    }
+  }
+}
